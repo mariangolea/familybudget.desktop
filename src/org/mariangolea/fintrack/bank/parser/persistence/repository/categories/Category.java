@@ -20,7 +20,7 @@ public class Category implements Serializable {
     @Column(name = "id")
     private Long id;
     
-    @Column(name = "display_name")
+    @Column(name = "display_name", unique=true, nullable = false)
     private String name;
     
     @Column(name="parent_id")
@@ -30,7 +30,7 @@ public class Category implements Serializable {
     }
 
     public Category(String name, Long parent) {
-        this.name = name;
+        this.name = Objects.requireNonNull(name);
         this.parent = parent;
     }
 
@@ -47,7 +47,7 @@ public class Category implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = Objects.requireNonNull(name);
     }
 
     public Long getParent() {

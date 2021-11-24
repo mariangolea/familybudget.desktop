@@ -105,7 +105,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.mariangolea.fintrack</groupId>

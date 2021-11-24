@@ -48,7 +48,7 @@ public class BankTransactionEditPane extends GridPane {
     public void setBankTransaction(final BankTransaction transaction) {
         clearFields();
         final ObservableList<String> originalCategories = FXCollections.observableArrayList();
-        originalCategories.addAll(userPrefs.getUserDefinedCategoryNames());
+        originalCategories.addAll(userPrefs.getCategoryNames());
         originalCategories.removeAll(userPrefs.getCompanyDisplayNames());
 
         String transactionDescription = transaction.getDescription();

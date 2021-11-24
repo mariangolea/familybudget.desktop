@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CompanyIdentifierRepository  extends JpaRepository<CompanyIdentifier, Integer>{
+public interface CompanyIdentifierRepository  extends JpaRepository<CompanyIdentifier, Long>{
     
 }

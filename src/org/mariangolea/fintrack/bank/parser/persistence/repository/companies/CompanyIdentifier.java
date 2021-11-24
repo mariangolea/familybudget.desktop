@@ -12,7 +12,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="companyidentifiers")
 public class CompanyIdentifier implements Serializable {
-    @Id
+	private static final long serialVersionUID = 6107837566518229694L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;

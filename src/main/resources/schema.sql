@@ -29,13 +29,13 @@ CREATE TABLE IF NOT EXISTS companyidentifiers (
 CREATE TABLE IF NOT EXISTS categories (
   id LONG AUTO_INCREMENT  PRIMARY KEY,
   display_name VARCHAR(250) NOT NULL,
-  prent_id LONG NOT NULL
+  parent_id LONG
 );
 
 CREATE TABLE IF NOT EXISTS users (
   id LONG AUTO_INCREMENT  PRIMARY KEY,
   user_name VARCHAR(250) NOT NULL,
-  password VARCHAR(250) NOT NULL,
+  password VARCHAR(250) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS userpreferences (

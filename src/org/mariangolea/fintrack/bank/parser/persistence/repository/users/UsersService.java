@@ -17,7 +17,8 @@ public class UsersService {
         return user.getPreferences();
     }
     
-    public void storePreferences(){
-        
+    public void storePreferences(final Integer userID, final UserPreferences prefs){
+    	User user = usersRepo.findById(userID).get();
+        user.setPreferences(prefs);
     }
 }

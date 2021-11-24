@@ -14,12 +14,13 @@
 		<sonar.organization>mariangolea</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<sonar.login>16a3e33108b64dbd52550997820d2f2384afeb70</sonar.login>
+		<junit-jupiter.version>5.7.1</junit-jupiter.version>
 	</properties>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.6.0</version>
-		<relativePath /> 
+		<relativePath />
 	</parent>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -163,6 +164,11 @@
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-runner</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-launcher</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

@@ -16,13 +16,13 @@ CREATE TABLE IF NOT EXISTS transactions (
 
 CREATE TABLE IF NOT EXISTS companynames (
   id LONG AUTO_INCREMENT  PRIMARY KEY,
-  display_name VARCHAR(250) NOT NULL
+  display_name VARCHAR(250) NOT NULL UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS companyidentifiers (
   id LONG AUTO_INCREMENT  PRIMARY KEY,
-  identifier VARCHAR(250) NOT NULL,
-  company_name LONG UNIQUE,
+  identifier VARCHAR(250) NOT NULL UNIQUE,
+  company_name LONG,
  FOREIGN KEY (company_name) REFERENCES companynames(id)
 );
 

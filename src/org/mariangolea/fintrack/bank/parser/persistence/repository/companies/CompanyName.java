@@ -22,7 +22,7 @@ public class CompanyName implements Serializable{
     @Column(name = "id")
     private Long id;
     
-    @Column(name = "company_name")
+    @Column(name = "display_name", unique=true, nullable = false)
     private String name;
     
     @OneToMany(cascade = CascadeType.ALL)
@@ -33,7 +33,7 @@ public class CompanyName implements Serializable{
 
     public CompanyName(Long id, String name, Collection<CompanyIdentifier> identifiers) {
         this.id = id;
-        this.name = name;
+        this.name = Objects.requireNonNull(name);
         this.identifiers = identifiers;
     }
 
@@ -42,7 +42,7 @@ public class CompanyName implements Serializable{
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = Objects.requireNonNull(name);
     }
 
     public Collection<CompanyIdentifier> getIdentifiers() {
@@ -62,31 +62,26 @@ public class CompanyName implements Serializable{
     }
 
     @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 23 * hash + Objects.hashCode(this.id);
-        hash = 23 * hash + Objects.hashCode(this.name);
-        hash = 23 * hash + Objects.hashCode(this.identifiers);
-        return hash;
-    }
+	public int hashCode() {
+		return Objects.hash(id, identifiers, name);
+	}
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final CompanyName other = (CompanyName) obj;
-        return true;
-    }
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CompanyName other = (CompanyName) obj;
+		return Objects.equals(id, other.id) && Objects.equals(identifiers, other.identifiers)
+				&& Objects.equals(name, other.name);
+	}
 
-    @Override
+	@Override
     public String toString() {
-        return "CompanyName{" + "name=" + name + ", identifier=" + identifiers.toString() + '}';
+    	String identifiersString = identifiers == null ? "null" : identifiers.toString();
+        return "CompanyName{" + "name=" + name + ", identifier=" + identifiersString + '}';
     }
 }

@@ -13,17 +13,13 @@ import org.mariangolea.fintrack.bank.parser.persistence.repository.categories.Ca
 import org.mariangolea.fintrack.bank.parser.persistence.repository.categories.CategoriesService;
 import org.mariangolea.fintrack.bank.parser.persistence.repository.categories.Category;
 import org.mariangolea.fintrack.bank.parser.persistence.repository.companies.CompanyIdentifierRepository;
-import org.mariangolea.fintrack.bank.parser.persistence.repository.companies.CompanyNameRepository;
-import org.mariangolea.fintrack.bank.parser.persistence.repository.companies.CompanyNameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 @ContextConfiguration(
 		classes = {
 				CategoriesService.class, 
-				CompanyNameService.class,
 				CategoriesRepository.class,
-				CompanyNameRepository.class,
 				CompanyIdentifierRepository.class
 				})
 public class CategoryServiceTest extends BaseDataJPATest{

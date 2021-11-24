@@ -7,17 +7,14 @@ import org.springframework.stereotype.Service;
 public class UsersService {
     
     @Autowired
-    private UserPreferencesRepository prefsRepo;
-    
-    @Autowired
     private UserRepository usersRepo;
     
-    public UserPreferences getPreferences(final Integer userID){
+    public UserPreferences getPreferences(final Long userID){
         User user = usersRepo.findById(userID).get();
         return user.getPreferences();
     }
     
-    public void storePreferences(final Integer userID, final UserPreferences prefs){
+    public void storePreferences(final Long userID, final UserPreferences prefs){
     	User user = usersRepo.findById(userID).get();
         user.setPreferences(prefs);
     }

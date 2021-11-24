@@ -19,7 +19,7 @@ public class CompanyIdentifier implements Serializable {
     @Column(name = "id")
     private Long id;
     
-    @Column(name = "identifier")
+    @Column(name = "identifier", unique=true, nullable = false)
     private String name;
     
     @Column(name="company_name")
@@ -29,7 +29,7 @@ public class CompanyIdentifier implements Serializable {
     }
 
     public CompanyIdentifier(String name, CompanyName companyName) {
-        this.name = name;
+        this.name = Objects.requireNonNull(name);
         this.companyName = companyName;
     }
 
@@ -46,7 +46,7 @@ public class CompanyIdentifier implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = Objects.requireNonNull(name);
     }
 
     public CompanyName getCompanyName() {
